@@ -82,14 +82,99 @@ var tl3 = gsap.timeline({
     start: "20% 50%",
     end: "100% 50%",
     scrub: 1,
-    markers: true 
+    // markers: true 
   }
 });
-tl3.to(".text-area-hover h1",{
+tl3.to(".content-2 .text-area-hover h1",{
   width:"100%"
 
 })
-tl3.to(".text-area-hover h2",{
+tl3.to(".content-2 .text-area-hover h2",{
   width:"100%"
+
+})
+
+var tl4 = gsap.timeline({
+  scrollTrigger: {
+    trigger: ".part-4",
+    start: "50% 50%",
+    end: "200% 50%",
+    pin:true,
+    scrub:1,
+    // markers: true 
+  }
+});
+tl4.to(".rght-part-4",{
+  marginTop:"-15%",
+
+
+},"sct-1");
+
+tl4.to(".c-one",{
+  opacity:1,
+
+
+},"sct-1");
+tl4.to(".c-two",{
+  opacity:1,
+
+
+},"sct-2");
+tl4.to(".c-one",{
+  opacity:0,
+  marginTop:"-50%",
+
+
+},"sct-2");
+tl4.to(".c-three",{
+  opacity:1,
+  
+
+
+},"sct-3");
+tl4.to(".c-one",{
+  opacity:0,
+  marginTop:"-120%",
+
+
+},"sct-3");
+tl4.to(".cir-icon",{
+ marginLeft:"100%",
+ rotate:360,
+
+
+},"sct-4");
+
+
+
+var tl5 = gsap.timeline({
+  scrollTrigger: {
+    trigger: ".part-5",
+    start: "20% 50%",
+    end: "100% 50%",
+    scrub: 1,
+    // markers: true 
+  }
+});
+tl5.to(".part-5 .text-area-hover h1",{
+  width:"100%"
+
+})
+tl5.to(".part-5 .text-area-hover h2",{
+  width:"100%"
+
+})
+var tl6 = gsap.timeline({
+  scrollTrigger: {
+    trigger: ".part-6",
+    start: "0% 70%",
+    end: "50% 50%",
+    scrub: 1,
+    // markers: true 
+  }
+});
+tl6.to(".part-6 .rounded-div-wrapper-6",{
+  height:"0%",
+  marginTop:"0",
 
 })

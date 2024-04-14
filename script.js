@@ -175,6 +175,13 @@ tl4.to(
   "sct-3"
 );
 tl4.to(
+  ".c-two",
+  {
+    opacity: 0,
+  },
+  "sct-3"
+);
+tl4.to(
   ".cir-icon",
   {
     marginLeft: "100%",
@@ -259,3 +266,4 @@ tl7.to(".scroll-img", {
 tl7.to("#demo", {
   bottom: "7%",
 });
+

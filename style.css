@@ -103,9 +103,13 @@ nav {
   height: calc(100% / 4);
   border-radius: 10px;
   overflow: hidden;
+  object-fit: ;
 }
 .img-div img {
   width: 100%;
+
+
+
 }
 
 #row-div-2 {
@@ -636,7 +640,7 @@ footer h4 {
   opacity: 0.4;
 }
 
-@media (max-width: 480px) {
+@media only screen and (max-width: 480px) {
 
   .left-nav {
     /* background-color: red; */
@@ -845,6 +849,7 @@ footer h4 {
   font-family: "Inter", sans-serif;
   font-size: 6vh;
   font-weight: 400;
+ 
   line-height: 10vh;
   opacity: 0.8;
 }
@@ -871,4 +876,67 @@ footer h4 {
   bottom: -10%;
 }
 
+}
+
+@media only screen and (min-width: 480px) and (max-width: 850px) {
+  .left-nav {
+    /* background-color: red; */
+    height: 3vh;
+    font-size: 2vw;
+    cursor: pointer;
+    overflow: hidden;
+}
+.rght-nav {
+  /* background-color: red; */
+  height: 4vh;
+  font-size: 2vw;
+  overflow: hidden;
+  cursor: pointer;
+}
+.rotate-div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 200vw;
+  height: 240vh;
+  gap: 3vw;
+  scale: 1;
+  background-color: #000;
+}
+
+.row-div {
+  display: flex;
+  flex-direction: column;
+  gap: 3vh;
+  width: calc(300vh / 5);
+  height: 100%;
+  /* background-color: wheat; */
+}
+.img-div {
+  width: 100%;
+  height: calc(100% / 5);
+  border-radius: 10px;
+  overflow: hidden;
+}
+.part-9 h1 {
+  font-family: "Inter", sans-serif;
+  font-size: 12vh;
+  font-weight: 400;
+  text-align: center;
+  line-height: 10vh;
+  opacity: 0.8;
+}
+.left-btn {
+  margin-top: -17vh;
+  font-size: 4vh;
+  opacity: 0.4;
+}
+.rght-part8 {
+  width: 50%;
+  display: flex;
+  gap: 4vh;
+  padding: 15vw 8vh;
+  flex-direction: column;
+  justify-content: center;
+}
 }

@@ -841,7 +841,7 @@ footer h4 {
   width: 100%;
   display: flex;
   gap: 4vh;
-  padding: 15vh;
+  padding: 6vh;
   flex-direction: column;
   justify-content: center;
 }

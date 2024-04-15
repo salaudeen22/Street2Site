@@ -103,7 +103,7 @@ nav {
   height: calc(100% / 4);
   border-radius: 10px;
   overflow: hidden;
-  object-fit: ;
+  object-fit: fill;
 }
 .img-div img {
   width: 100%;

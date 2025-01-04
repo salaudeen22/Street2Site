@@ -13,65 +13,128 @@ requestAnimationFrame(raf);
 
 gsap.registerPlugin(ScrollTrigger);
 
+// Media query breakpoints
+const breakpoints = {
+  mobile: "(max-width: 480px)",
+  tablet: "(min-width: 481px) and (max-width: 1024px)",
+  desktop: "(min-width: 1025px)"
+};
+
+// Responsive values
+const getResponsiveValues = () => {
+  if (window.matchMedia(breakpoints.mobile).matches) {
+    return {
+      rotate: -10,
+      scale: 0.6,
+      marginTop: {
+        row1: "-1%",
+        row2: "0%", 
+        row3: "-1%",
+        row4: "-4%",
+        row5: "-5%"
+      }
+    };
+  } else if (window.matchMedia(breakpoints.tablet).matches) {
+    return {
+      rotate: -12,
+      scale: 0.7,
+      marginTop: {
+        row1: "-1.5%",
+        row2: "0%",
+        row3: "-1.5%",
+        row4: "-6%", 
+        row5: "-7%"
+      }
+    };
+  } else {
+    return {
+      rotate: -15,
+      scale: 0.8,
+      marginTop: {
+        row1: "-2%",
+        row2: "0%",
+        row3: "-2%",
+        row4: "-8%",
+        row5: "-10%"
+      }
+    };
+  }
+};
+
+// Update animations on resize
+let responsiveValues = getResponsiveValues();
+window.addEventListener('resize', () => {
+  responsiveValues = getResponsiveValues();
+  // Refresh animations
+  ScrollTrigger.refresh();
+});
+
 var tl = gsap.timeline({
   scrollTrigger: {
     trigger: ".part1",
     start: "50% 50%",
     end: "120% 50%",
     scrub: true,
-    // markers: true
   },
 });
+
 tl.to(
   ".rotate-div",
   {
-    rotate: -15,
-    scale: 0.8,
+    rotate: () => responsiveValues.rotate,
+    scale: () => responsiveValues.scale,
   },
   "a"
 );
+
 tl.to(
   "#row-div-1",
   {
-    marginTop: "-2%",
+    marginTop: () => responsiveValues.marginTop.row1,
   },
   "a"
 );
+
 tl.to(
   "#row-div-2",
   {
-    marginTop: "0%",
+    marginTop: () => responsiveValues.marginTop.row2,
   },
   "a"
 );
+
 tl.to(
   "#row-div-3",
   {
-    marginTop: "-2%",
+    marginTop: () => responsiveValues.marginTop.row3,
   },
   "a"
 );
+
 tl.to(
   "#row-div-4",
   {
-    marginTop: "-8%",
+    marginTop: () => responsiveValues.marginTop.row4,
   },
   "a"
 );
+
 tl.to(
   "#row-div-5",
   {
-    marginTop: "-10%",
+    marginTop: () => responsiveValues.marginTop.row5,
   },
   "a"
 );
+
 tl.to(
-  ".overlay h1",
+  ".overlay h1, .overlay h2",
   {
     opacity: 1,
   },
   "a"
 );
+
 tl.to(
   ".overlay",
   {
@@ -79,6 +142,7 @@ tl.to(
   },
   "a"
 );
+
 tl.to(
   ".scrolling ",
   {
@@ -88,16 +152,15 @@ tl.to(
 );
 
 // part-2
-
 var tl2 = gsap.timeline({
   scrollTrigger: {
     trigger: ".part2",
-    start: "0% 70%",
+    start: window.matchMedia(breakpoints.mobile).matches ? "0% 80%" : "0% 70%",
     end: "50% 50%",
     scrub: true,
-    // markers: true
   },
 });
+
 tl2.to(".rounded-div-wrapper", {
   height: 0,
   marginTop: 0,
@@ -106,15 +169,16 @@ tl2.to(".rounded-div-wrapper", {
 var tl3 = gsap.timeline({
   scrollTrigger: {
     trigger: ".content-2",
-    start: "20% 50%",
+    start: window.matchMedia(breakpoints.mobile).matches ? "10% 50%" : "20% 50%",
     end: "100% 50%",
     scrub: 1,
-    // markers: true
   },
 });
+
 tl3.to(".content-2 .text-area-hover h1", {
   width: "100%",
 });
+
 tl3.to(".content-2 .text-area-hover h2", {
   width: "100%",
 });
@@ -126,13 +190,13 @@ var tl4 = gsap.timeline({
     end: "200% 50%",
     pin: true,
     scrub: 1,
-    // markers: true
   },
 });
+
 tl4.to(
   ".rght-part-4",
   {
-    marginTop: "-15%",
+    marginTop: window.matchMedia(breakpoints.mobile).matches ? "-10%" : "-15%",
   },
   "sct-1"
 );
@@ -144,6 +208,7 @@ tl4.to(
   },
   "sct-1"
 );
+
 tl4.to(
   ".c-two",
   {
@@ -151,6 +216,7 @@ tl4.to(
   },
   "sct-2"
 );
+
 tl4.to(
   ".c-one",
   {
@@ -159,6 +225,7 @@ tl4.to(
   },
   "sct-2"
 );
+
 tl4.to(
   ".c-three",
   {
@@ -166,6 +233,7 @@ tl4.to(
   },
   "sct-3"
 );
+
 tl4.to(
   ".c-one",
   {
@@ -174,6 +242,7 @@ tl4.to(
   },
   "sct-3"
 );
+
 tl4.to(
   ".c-two",
   {
@@ -181,6 +250,7 @@ tl4.to(
   },
   "sct-3"
 );
+
 tl4.to(
   ".cir-icon",
   {
@@ -193,27 +263,29 @@ tl4.to(
 var tl5 = gsap.timeline({
   scrollTrigger: {
     trigger: ".part-5",
-    start: "20% 50%",
+    start: window.matchMedia(breakpoints.mobile).matches ? "10% 50%" : "20% 50%",
     end: "100% 50%",
     scrub: 1,
-    // markers: true
   },
 });
+
 tl5.to(".part-5 .text-area-hover h1", {
   width: "100%",
 });
+
 tl5.to(".part-5 .text-area-hover h2", {
   width: "100%",
 });
+
 var tl6 = gsap.timeline({
   scrollTrigger: {
     trigger: ".part-6",
-    start: "0% 70%",
+    start: window.matchMedia(breakpoints.mobile).matches ? "0% 80%" : "0% 70%",
     end: "20% 50%",
     scrub: 1,
-    // markers: true
   },
 });
+
 tl6.to(".part-6 .rounded-div-wrapper-6", {
   height: "0%",
   marginTop: "0",
@@ -226,26 +298,29 @@ var tl7 = gsap.timeline({
     end: "200% 50%",
     pin: true,
     scrub: 1,
-    // markers: true,
   },
 });
+
 tl7.to("#demo", {
-  bottom: "7%",
+  bottom: window.matchMedia(breakpoints.mobile).matches ? "5%" : "7%",
 });
+
 tl7.to(
   ".ourwork-txt",
   {
-    height: "60vh",
+    height: window.matchMedia(breakpoints.mobile).matches ? "40vh" : "60vh",
   },
   "height"
 );
+
 tl7.to(
   ".ourwork-txt-div",
   {
-    height: "60vh",
+    height: window.matchMedia(breakpoints.mobile).matches ? "40vh" : "60vh",
   },
   "height"
 );
+
 tl7.to(
   "#our",
   {
@@ -253,6 +328,7 @@ tl7.to(
   },
   "height"
 );
+
 tl7.to(
   "#work",
   {
@@ -260,10 +336,11 @@ tl7.to(
   },
   "height"
 );
+
 tl7.to(".scroll-img", {
-  marginTop: "-300%",
-});
-tl7.to("#demo", {
-  bottom: "7%",
+  marginTop: window.matchMedia(breakpoints.mobile).matches ? "-200%" : "-300%",
 });
 
+tl7.to("#demo", {
+  bottom: window.matchMedia(breakpoints.mobile).matches ? "5%" : "7%",
+});

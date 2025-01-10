@@ -188,10 +188,10 @@ tl3.to(".content-2 .text-area-hover h2", {
 var tl4 = gsap.timeline({
   scrollTrigger: {
     trigger: ".part-4",
-    start: "30% 50%",
+    start: "50% 50%",
     end: "200% 50%",
     pin: true,
-    markers:true,
+    // markers:true,
     scrub: 1,
   },
 });
